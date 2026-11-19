@@ -75,7 +75,11 @@ def draft_reply(email_id, body):
 
 # 6. Flag email for human review
 def flag_for_review(email_id, reason):
-    with open("flagged.md", "a") as f:
+    flagged = Path("flagged.md")
+    if flagged.exists() and f"- {email_id}:" in flagged.read_text():
+        return f"{email_id} is already flagged. Nothing to do."
+
+    with open(flagged, "a") as f:
         f.write(f"- {email_id}: {reason}\n")
     return f"Flagged {email_id} for human review."
 
