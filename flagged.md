@@ -1,0 +1,2 @@
+- e004: Issue with website downtime escalated by a client. Needs urgent attention.
+- e008: Urgent action required on account, needs human review.
